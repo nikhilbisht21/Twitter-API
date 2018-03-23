@@ -61,6 +61,8 @@ See resources for further details.
     <li>searchTweets()</li>
     <li>sortTweets()</li>
     <li>streamTweets()</li>
+    <li>tweetBook_object.next()</li>
+    <li>tweetBook_object.previous()</li>
     <li>verify()</li>
     <li>viewBook()</li>   
     </ul>
@@ -68,7 +70,7 @@ See resources for further details.
 # Getting Started
 
 
-<b>1.</b> Import twitter_api as tap<br>
+<b>1.</b> Import Twitter-API as tap<br>
 <b>2.</b> tap.configure(<b>consumer_key</b>='consumer_key',<b>access_token_key</b>='access_token_key',<b>tap.consumer_secret</b>='consumer_secret',
 <b>tap.access_token_secret</b>='access_token_secret',<b>uri</b>='uri')
 <br><b>3.</b> tap.initialize()
