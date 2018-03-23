@@ -40,7 +40,7 @@ Following keys are needed in order to use the api:
 </ul>
 
 #### MongoDB
-There are two ways to work on mongoDB, either it could be installedd directly in our local system or use the free cloud database service.A URI is needed in case free cloud database is used.<br>
+There are two ways to work on mongoDB, either it could be installed directly in our local system or use the free cloud database service.A URI is needed in case free cloud database is used.<br>
 See resources for further details.
 
  
