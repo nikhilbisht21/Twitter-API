@@ -1,0 +1,494 @@
+# Twitter Search/Streaming API Documentation
+
+## Functions:
+### 1.add_document(db,data,user)
+### 2.configure(consumer_key=None,access_token_key=None,consumer_secret=None,access_token_secret=None,uri=None)
+### 3.database()
+### 4.exportFilter(book,cols=[],filename='filterTwitter') 
+### 5.exportToCSV(columns=[],filename='twitter')
+### 6.extract(tweet)
+### 7.filterDateTime(filter_by=None,value1=None,value2=None,flag=None)
+### 8.filterTweets(filter_by=None,keywords=None,flag=None,value=None)
+### 9.getDate(dt)
+### 10.gen_pages(db,twts,limit=32)
+### 11.get_tweet(db,id)
+### 12.getTweets(db,dat)
+### 13.get_user(db,id)
+### 14.get_words(txt=[],delt='and')
+### 15.initialize()
+### 16.par()
+### 17.percent_encode(code)
+### 18.search(keywords=None,search_by='text')
+### 18.searchTweets(keywords=[],deliminiter='and',count=100)
+### 20.sortTweets(sort_by=None,order='asc')
+### 21.streamTweets(keywords=[],deliminiter='and',count=100)
+### 22.store(stats)
+### 23.verify()
+### 24.viewBook(book)
+
+
+## 1.add_document(db,data,user)
+    
+    This function add a tweet to database.
+    The tweet is divided into two subparts to remove redundancy in database.
+    Subparts of a single tweet:
+        1.tweet:
+            It has the details related to tweet only
+        2.user:
+            It has the details about the user of the tweet
+        tweet,user are saved in different collections in database
+        
+    parameters:
+    1.db:
+        Instance of the database
+    2.data:
+        Dictionary with the information about tweet
+    3.user:
+        Dictionary with the information about tweet's user
+    returns:
+    An integer value denoting success and failure of adding document to database
+
+
+## 2.configure(consumer_key=None,access_token_key=None,consumer_secret=None,access_token_secret=None,uri=None)
+    
+    Saves the authetication keys to a json file for further initialization process
+    
+    parameters:
+    1.consumer_key
+    2.access_token_key
+    3.consumer_secret
+    4.access_token_secret
+
+## 3.database()
+    
+    This function intialize the global instance of the database
+    
+    Database: monoDB
+    Database name: twitter
+    Database name: twitter
+    Collection Names: tweets,user
+    url: Link of the online database of mongoDB
+    
+    Note: To run mongoDB from localhost don't pass any parameter to MongoClient()
+
+## 4.exportFilter(book,cols=[],filename='filterTwitter')
+    
+    Export the filtered tweets to the csv file
+    
+    parameters:
+    1.book:
+        Instance of tweetBook class
+    2.filename(string)
+        name of csv file
+
+## 5.exportToCSV(columns=[],details='tweets'
+    
+    This function is use to export specific details from database to csv file.
+    This function used DicWriter of csv to write data dictionary to csv file
+    
+    1.columns(list)
+        database key values to be exported to csv file
+    3.filename
+        name of csv file
+        
+    returns:
+    None
+    
+    Prints status of file completion
+
+
+## 6.extract(tweet)
+    
+    This function extract the details from a single tweet i.e. a dictionary object and stores the minimal details of tweet in...
+    ..dictionary named as data.
+    
+    parameters:
+    1.tweet(dictionary):
+        This dictonary contains a single tweet data
+    
+    returns:
+    1.data
+        Dictionary with minimal detais of a single tweet
+    2.user
+        Dictionary with minimal details of tweet's user
+
+## 7.filterTweets(filter_by=None,keywords=None,flag=None,value=None)
+    
+    This function is used to filter the tweets fetched from the database on the basis of date
+    
+    parameters:
+    1.filter_by(string):
+        options:
+            date
+            time
+            day
+    2.value1(list,string):
+        Values for the filtering
+        Note: To be used with following filter options and flag only:
+            Date
+            Time
+            Day
+                Format:
+                Date(list):[2018,3,21] i.e. [yyyy,mm,dd]
+                    Flags:
+                        et
+                        gt
+                        lt
+                        lte
+                        gte
+                        ne
+                Time(list):[14,2,1] i.e [hh,mm,ss]
+                    Flags:
+                        et
+                        gt
+                        lt
+                        lte
+                        gte
+                        ne
+                Day(string):
+                value options:
+                        'Mon'
+                        'Tue'
+                        'Wed'
+                        'Thu'
+                        'Fri'
+                        'Sat'
+                        'Sun'
+    2.value2(list,string):
+        Values for the filtering
+        Note: To be used with following filter options only:
+            Date
+            Time
+        Format:
+            Date(list):[2018,3,21] i.e. [yyyy,mm,dd]
+            Time(list):[14,2,1] i.e [hh,mm,ss]
+        Flags:
+            bt
+        
+    4.flag(string):
+        used with filter with string type values
+        options:
+            bt
+            et
+            lt
+            gt
+            lte
+            gte
+            ne
+         Note: To be used with following filter options only:
+             Date
+             Time
+
+    returns:
+    An instance of tweet class
+    Operations which be perfored on this object
+    next():
+        Goto next page of tweet book
+    previous():
+        Goto previous page of tweet book  
+
+## 8.filterTweets(filter_by=None,keywords=None,flag=None,value=None)
+    
+    This function is used to filter the tweets fetched from the database on the basis of date
+    
+    parameters:
+    1.filter_by(string):
+        options:
+            date
+            time
+            day
+    2.value1(list,string):
+        Values for the filtering
+        Note: To be used with following filter options and flag only:
+            Date
+            Time
+            Day
+                Format:
+                Date(list):[2018,3,21] i.e. [yyyy,mm,dd]
+                    Flags:
+                        et
+                        gt
+                        lt
+                        lte
+                        gte
+                        ne
+                Time(list):[14,2,1] i.e [hh,mm,ss]
+                    Flags:
+                        et
+                        gt
+                        lt
+                        lte
+                        gte
+                        ne
+                Day(string):
+                value options:
+                        'Mon'
+                        'Tue'
+                        'Wed'
+                        'Thu'
+                        'Fri'
+                        'Sat'
+                        'Sun'
+    2.value2(list,string):
+        Values for the filtering
+        Note: To be used with following filter options only:
+            Date
+            Time
+        Format:
+            Date(list):[2018,3,21] i.e. [yyyy,mm,dd]
+            Time(list):[14,2,1] i.e [hh,mm,ss]
+        Flags:
+            bt
+        
+    4.flag(string):
+        used with filter with string type values
+        options:
+            bt
+            et
+            lt
+            gt
+            lte
+            gte
+            ne
+         Note: To be used with following filter options only:
+             Date
+             Time
+
+    returns:
+    An instance of tweet class
+    Operations which be perfored on this object
+    next():
+        Goto next page of tweet book
+    previous():
+        Goto previous page of tweet book  
+
+## 9.getDate(dt)
+    
+    returns a formated date from the values of list parameter
+
+## 10.gen_pages(db,twts,limit=32)
+    
+    This function is used to implement pagination to the records fetched from the database.
+    It uses tweet class to form a book like data structure providing with pages.
+    
+    parameters
+    1.db:
+        Instance of the database
+    2.twts(dictionary):
+        Tweet records fetched from the database
+    2.limit(int)
+        No. of tweets per page
+        
+    returns:
+    An object of tweet class
+    Operations which be perfored on this object
+    next():
+        Goto next page of tweet book
+    previous():
+        Goto previous page of tweet book  
+
+## 11.get_tweet(db,id)
+    
+    This function returns the tweet details for a single user by fetching tweet document from database 
+    
+    parameters:
+    1.db:
+        Instance of database
+    2.id
+        tweet_id to be matched in the database to get user information
+        
+    returns:
+    A dictionary containing details of the tweets by user
+
+
+## 12.gettweets(db,data)
+    
+    This function returns the tweets by the a particular user 
+    
+    parameters:
+    1.db:
+        Instance of database
+    2.data(dictionary)
+        User details
+        
+    returns:
+    A dictionary with tweets by a user
+
+## 13.get_user(db,id)
+    
+    This function returns the user details for a single tweet by fetching user document from database 
+    
+    parameters:
+    1.db:
+        Instance of database
+    2.id
+        userid to be matched in the database to get user information
+        
+    returns:
+    A dictionary containing details of the user
+
+## 14.get_words(txt=[],delt='and')
+    
+    Combine the values of a list into a string on the basis of operation needed
+    
+    parameters:
+    1.txt(list)
+        list of values to be combined
+    2.del(string)
+        Delinimter
+        options:
+            and
+            or
+    
+    returns:
+    A string of combines list values
+
+
+## 15.initialize()
+    
+    Initializes the api instance using python-twitter library which is used to create conection and fetch tweets
+
+## 16. par()
+    
+    Intializes global variable "a" which is used by percent_encode() in string encoding w.r.t twitter standards
+
+
+## 17.percent_encode(code)
+    
+    Returns an encoded string according to twitter standards, used while sending search query and getting data from twitter database
+    
+    parameters:
+    1.code(string)
+    
+    returns:
+    An encoded string w.r.t to twitter standards
+
+18.search(keyword=None,search_by='text')
+    
+    This function is used to perform search operation over the tweet records stored in database
+    
+    parameters:
+    1.keywords(list):
+        Words to be searched in database
+    2.search_by(string)
+        where to search for keywords in database
+        options:
+            text
+            name
+            screen_name
+            
+    returns:
+    An instance of tweet class
+    Operations which be perfored on this object
+    next():
+        Goto next page of tweet book
+    previous():
+        Goto previous page of tweet book  
+
+## 19.searchTweets(keywords=[],deliminiter='and',count=100)
+    
+    This function fecth the tweets from the twitter's database with standard search protocol defined by twitter.
+    Connection will closed by the twitter server after every request completion.
+    These tweets are in form of data dictionary which is passed to store() function to store it in database.
+    
+    parameters:
+    1.keywords(list):
+        words to be searched for or for which tweets is to be collected
+    2.deliminiter(string)
+        relation between multipe keywords if provided
+    3.count(int):
+        number to tweets to be fetched
+    
+    returns:
+    None
+    
+    Print numbers of records added to database successfully
+
+## 20.sortTweets(sort_by=None,order='asc')
+    
+    This function returns the sorted tweets fetched from the database
+    
+    parameters:
+    1.sort_by(string)
+        Keys on the basis of which record are to be sorted
+        options:
+            date
+            time
+            day
+            text
+            retweet_count
+            favorite_count
+    2.order:
+        Ascending or descending order
+        options:
+            asc
+            des
+            
+    returns:
+    An instance of tweet class
+    Operations which be perfored on this object
+    next():
+        Goto next page of tweet book
+    previous():
+        Goto previous page of tweet book  
+
+## 21.streamTweets(keywords=[],deliminiter='and',count=100)
+    
+    This function fecth the tweets from the twitter's database with stream filter protocol defined by twitter.
+    Connection will be open with twitter servers until it is closed by api.
+    These tweets are in form of data dictionary which is passed to store() function to store it in database.
+    
+    parameters:
+    1.keywords(list):
+        words to be searched for or for which tweets is to be collected
+    2.deliminiter(string)
+        relation between multipe keywords if provided
+    3.count(int):
+        number to tweets to be fetched
+    4.languages
+        options:
+            en
+            hi
+            for more : https://developer.twitter.com/en/docs/developer-utilities/supported-languages/api-reference/get-help-languages
+    5.filter_level:
+        Setting this parameter to one of none, low, or medium will set the minimum value of the filter_level Tweet attribute required
+        to be included in the stream. The default value is none, which includes all available Tweets.
+    returns:
+    None
+    
+    Print numbers of records added to database successfully
+
+## 22.store(stats)
+    
+    Iterate over the tweets fetched from twitter database
+    
+    parameters:
+    1.stats(list)
+        List with certain number of tweets
+        
+    returns:
+    An integer value 
+
+## 23.def verify():
+    """
+    verify():
+    
+    Prints the details of user for verifcation purpose
+
+## 24. viewBook(book)
+    
+    parameter:
+    1.book
+        Instance of tweetBook
+    
+    Prints the tweets in single page
+    
+# References
+Standard Searching https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets
+Stream Filtering https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters
+Introduction to Tweet JSON https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json
+Tweet data dictionaries https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/tweet-object
+Link to get application tokens https://apps.twitter.com/
+Guide to get application tokens https://github.com/bear/python-twitter/blob/master/doc/getting_started.rst
+Link to the guide to get URI https://docs.mongodb.com/manual/tutorial/atlas-free-tier-setup/
+Download link to monogoBD https://www.mongodb.com/download-center
