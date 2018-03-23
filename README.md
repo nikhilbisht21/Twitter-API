@@ -2,14 +2,9 @@
 This API is for fetching and storing the target tweets with metadata
 
 # Twitter Search/Streaming API
-
-
-This API is for fetching and storing the target tweets with metadata(e.g. modi,AbkiBarModiSarkar,ModiForPM etc)
 ### Objectives
 <ul>
-<li>Trigger a twitter search/stream for recent high traffic events.
-
-    </li>
+<li>Trigger a twitter search/stream for recent high traffic events.</li>
 <li> 
     Return stored tweets and their metadata based on applied filters/search.
     </li>
