@@ -1,33 +1,33 @@
-# Twitter Search/Streaming API Documentation
+#Twitter Search/Streaming API Documentation
 
-## Functions:
-### 1.add_document(db,data,user)
-### 2.configure(consumer_key=None,access_token_key=None,consumer_secret=None,access_token_secret=None,uri=None)
-### 3.database()
-### 4.exportFilter(book,cols=[],filename='filterTwitter') 
-### 5.exportToCSV(columns=[],filename='twitter')
-### 6.extract(tweet)
-### 7.filterDateTime(filter_by=None,value1=None,value2=None,flag=None)
-### 8.filterTweets(filter_by=None,keywords=None,flag=None,value=None)
-### 9.getDate(dt)
-### 10.gen_pages(db,twts,limit=32)
-### 11.get_tweet(db,id)
-### 12.getTweets(db,dat)
-### 13.get_user(db,id)
-### 14.get_words(txt=[],delt='and')
-### 15.initialize()
-### 16.par()
-### 17.percent_encode(code)
-### 18.search(keywords=None,search_by='text')
-### 18.searchTweets(keywords=[],deliminiter='and',count=100)
-### 20.sortTweets(sort_by=None,order='asc')
-### 21.streamTweets(keywords=[],deliminiter='and',count=100)
-### 22.store(stats)
-### 23.verify()
-### 24.viewBook(book)
+All Functions:
+1.add_document(db,data,user)
+2.configure(consumer_key=None,access_token_key=None,consumer_secret=None,access_token_secret=None,uri=None)
+3.database()
+4.exportFilter(book,cols=[],filename='filterTwitter') 
+5.exportToCSV(columns=[],filename='twitter')
+6.extract(tweet)
+7.filterDateTime(filter_by=None,value1=None,value2=None,flag=None)
+8.filterTweets(filter_by=None,keywords=None,flag=None,value=None)
+9.getDate(dt)
+10.gen_pages(db,twts,limit=32)
+11.get_tweet(db,id)
+12.getTweets(db,dat)
+13.get_user(db,id)
+14.get_words(txt=[],delt='and')
+15.initialize()
+16.par()
+17.percent_encode(code)
+18.search(keywords=None,search_by='text')
+18.searchTweets(keywords=[],deliminiter='and',count=100)
+20.sortTweets(sort_by=None,order='asc')
+21.streamTweets(keywords=[],deliminiter='and',count=100)
+22.store(stats)
+23.verify()
+24.viewBook(book)
 
 
-## 1.add_document(db,data,user)
+1.add_document(db,data,user)
     
     This function add a tweet to database.
     The tweet is divided into two subparts to remove redundancy in database.
@@ -49,7 +49,7 @@
     An integer value denoting success and failure of adding document to database
 
 
-## 2.configure(consumer_key=None,access_token_key=None,consumer_secret=None,access_token_secret=None,uri=None)
+2.configure(consumer_key=None,access_token_key=None,consumer_secret=None,access_token_secret=None,uri=None)
     
     Saves the authetication keys to a json file for further initialization process
     
@@ -59,7 +59,7 @@
     3.consumer_secret
     4.access_token_secret
 
-## 3.database()
+3.database()
     
     This function intialize the global instance of the database
     
@@ -71,7 +71,7 @@
     
     Note: To run mongoDB from localhost don't pass any parameter to MongoClient()
 
-## 4.exportFilter(book,cols=[],filename='filterTwitter')
+4.exportFilter(book,cols=[],filename='filterTwitter')
     
     Export the filtered tweets to the csv file
     
@@ -81,7 +81,7 @@
     2.filename(string)
         name of csv file
 
-## 5.exportToCSV(columns=[],details='tweets'
+5.exportToCSV(columns=[],details='tweets'
     
     This function is use to export specific details from database to csv file.
     This function used DicWriter of csv to write data dictionary to csv file
@@ -97,7 +97,7 @@
     Prints status of file completion
 
 
-## 6.extract(tweet)
+6.extract(tweet)
     
     This function extract the details from a single tweet i.e. a dictionary object and stores the minimal details of tweet in...
     ..dictionary named as data.
@@ -112,7 +112,7 @@
     2.user
         Dictionary with minimal details of tweet's user
 
-## 7.filterTweets(filter_by=None,keywords=None,flag=None,value=None)
+7.filterTweets(filter_by=None,keywords=None,flag=None,value=None)
     
     This function is used to filter the tweets fetched from the database on the basis of date
     
@@ -187,7 +187,7 @@
     previous():
         Goto previous page of tweet book  
 
-## 8.filterTweets(filter_by=None,keywords=None,flag=None,value=None)
+8.filterTweets(filter_by=None,keywords=None,flag=None,value=None)
     
     This function is used to filter the tweets fetched from the database on the basis of date
     
@@ -262,11 +262,11 @@
     previous():
         Goto previous page of tweet book  
 
-## 9.getDate(dt)
+9.getDate(dt)
     
     returns a formated date from the values of list parameter
 
-## 10.gen_pages(db,twts,limit=32)
+10.gen_pages(db,twts,limit=32)
     
     This function is used to implement pagination to the records fetched from the database.
     It uses tweet class to form a book like data structure providing with pages.
@@ -287,7 +287,7 @@
     previous():
         Goto previous page of tweet book  
 
-## 11.get_tweet(db,id)
+11.get_tweet(db,id)
     
     This function returns the tweet details for a single user by fetching tweet document from database 
     
@@ -301,7 +301,7 @@
     A dictionary containing details of the tweets by user
 
 
-## 12.gettweets(db,data)
+12.gettweets(db,data)
     
     This function returns the tweets by the a particular user 
     
@@ -314,7 +314,7 @@
     returns:
     A dictionary with tweets by a user
 
-## 13.get_user(db,id)
+13.get_user(db,id)
     
     This function returns the user details for a single tweet by fetching user document from database 
     
@@ -327,7 +327,7 @@
     returns:
     A dictionary containing details of the user
 
-## 14.get_words(txt=[],delt='and')
+14.get_words(txt=[],delt='and')
     
     Combine the values of a list into a string on the basis of operation needed
     
@@ -344,16 +344,16 @@
     A string of combines list values
 
 
-## 15.initialize()
+15.initialize()
     
     Initializes the api instance using python-twitter library which is used to create conection and fetch tweets
 
-## 16. par()
+16. par()
     
     Intializes global variable "a" which is used by percent_encode() in string encoding w.r.t twitter standards
 
 
-## 17.percent_encode(code)
+17.percent_encode(code)
     
     Returns an encoded string according to twitter standards, used while sending search query and getting data from twitter database
     
@@ -385,7 +385,7 @@
     previous():
         Goto previous page of tweet book  
 
-## 19.searchTweets(keywords=[],deliminiter='and',count=100)
+19.searchTweets(keywords=[],deliminiter='and',count=100)
     
     This function fecth the tweets from the twitter's database with standard search protocol defined by twitter.
     Connection will closed by the twitter server after every request completion.
@@ -404,7 +404,7 @@
     
     Print numbers of records added to database successfully
 
-## 20.sortTweets(sort_by=None,order='asc')
+20.sortTweets(sort_by=None,order='asc')
     
     This function returns the sorted tweets fetched from the database
     
@@ -432,7 +432,7 @@
     previous():
         Goto previous page of tweet book  
 
-## 21.streamTweets(keywords=[],deliminiter='and',count=100)
+21.streamTweets(keywords=[],deliminiter='and',count=100)
     
     This function fecth the tweets from the twitter's database with stream filter protocol defined by twitter.
     Connection will be open with twitter servers until it is closed by api.
@@ -458,7 +458,7 @@
     
     Print numbers of records added to database successfully
 
-## 22.store(stats)
+22.store(stats)
     
     Iterate over the tweets fetched from twitter database
     
@@ -469,13 +469,13 @@
     returns:
     An integer value 
 
-## 23.def verify():
+23.def verify():
     """
     verify():
     
     Prints the details of user for verifcation purpose
 
-## 24. viewBook(book)
+24.    viewBook(book)
     
     parameter:
     1.book
@@ -483,7 +483,8 @@
     
     Prints the tweets in single page
     
-# References
+
+References
 Standard Searching https://developer.twitter.com/en/docs/tweets/search/api-reference/get-search-tweets
 Stream Filtering https://developer.twitter.com/en/docs/tweets/filter-realtime/guides/basic-stream-parameters
 Introduction to Tweet JSON https://developer.twitter.com/en/docs/tweets/data-dictionary/overview/intro-to-tweet-json
@@ -492,3 +493,5 @@ Link to get application tokens https://apps.twitter.com/
 Guide to get application tokens https://github.com/bear/python-twitter/blob/master/doc/getting_started.rst
 Link to the guide to get URI https://docs.mongodb.com/manual/tutorial/atlas-free-tier-setup/
 Download link to monogoBD https://www.mongodb.com/download-center
+
+
