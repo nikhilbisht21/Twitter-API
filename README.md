@@ -73,6 +73,7 @@ See resources for further details.
 <b>1.</b> Import Twitter-API as tap<br>
 <b>2.</b> tap.configure(<b>consumer_key</b>='consumer_key',<b>access_token_key</b>='access_token_key',<b>tap.consumer_secret</b>='consumer_secret',
 <b>tap.access_token_secret</b>='access_token_secret',<b>uri</b>='uri')
+Note: Leave uri blank in case you are running mongoBD on your local system, and ensure that the mongoDB server is started on your local system before initializing the API.
 <br><b>3.</b> tap.initialize()
 <br><b>4.</b> tap.searchTweets(keywords=['modi','AbkiBarModiSarkar','ModiForPM'],deliminiter='or',count=1000)
     <b>OR</b> tap.streamTweets(keywords=['modi','AbkiBarModiSarkar','ModiForPM'],deliminiter='or',count=1000)
